@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Practice</title>
+</head>
+
+<body>
+
+    <ul>
+        <li class="js-target">Unchanged</li>
+        <li class=>Unchanged</li>
+        <li class="js-target">Won't Change</li>
+        <li class=>Unchanged</li>
+        <li class="js-target">Won't Change</li>
+        <li class=>Unchanged</li>
+    </ul>
+
+    <button class="event-button">Click Me</button>
+
+    <input placeholder="type into me!" class="input-to-copy">
+    <h2 class="input-text">Nothing happened yet</h2>
+
+    <div class="red-square"></div>
+    <input placeholder="type a color" class="color-input">
+
+    <class class="button-container">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </class>
+
+    <script>
+        document.querySelector('.button-container').addEventListener('click', function (event) {
+            alert(`you clicked the button ${event.target.innerText}`);
+        });
+        // const redSquare = document.querySelector('.red-square');
+        // redSquare.style.backgroundColor = 'limegreen';
+        // redSquare.style.width = '300px'
+
+        // const elementsToChange = document.querySelectorAll('.js-target');
+        // for(let i=0; i < elementsToChange.length; i++){
+        //     const currentElement = elementsToChange[i];
+        //     currentElement.innerHTML = "Modified by Javascript";
+
+        const button = document.querySelector('.event-button');
+        button.addEventListener('click', function () {
+            button.style.backgroundColor = 'red';
+            button.style.color = 'white';
+            alert("Heello there");
+        });
+
+        const PText = document.querySelector('.input-text');
+        const input = document.querySelector('.input-to-copy');
+        input.addEventListener("keyup", function () {
+            PText.innerText = input.value;
+        });
+
+        const square = document.querySelector('.red-square');
+        const inputColor = document.querySelector('.color-input');
+        inputColor.addEventListener("change", function () {
+            square.style.backgroundColor = inputColor.value;
+        });
+
+    </script>
+
+    <style>
+        .red-square {
+            width: 100px;
+            height: 100px;
+            background-color: limegreen;
+        }
+    </style>
+
+</body>
+
+</html>
